@@ -1,1 +1,1 @@
-# map_reduce
+ini contoh script map reduce menggunakan python
