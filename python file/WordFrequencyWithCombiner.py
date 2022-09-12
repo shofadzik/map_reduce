@@ -6,7 +6,6 @@ class MRWordFrequencyCount (MRJob):
     def mapper(self, _, line): 
     words=line.split()
     for word in words:
-        #word = unicode (word, "utf-8", errors="ignore") 
         yield word.lower(), 1
 
     def combiner (self, key, values): 
