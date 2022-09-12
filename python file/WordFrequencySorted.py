@@ -1,6 +1,6 @@
 #contoh dengan multi stage
 from mrjob.job import MRJob
-from mrjob.step import MRStep #import package MRStep karena pake multi stage
+from mrjob.step import MRStep 
 
 import re
 
@@ -8,7 +8,6 @@ WORD_REGEXP = re.compile(r" [\w']+")
 
 class MRWordFrequencyCount (MRJob):
     
-    #diawal harus tentukan dulu stepnya, mapper mana yang pertama jalan
     def steps (self):
         return [
             MRStep(mapper=self.mapper_get_words,
@@ -26,11 +25,11 @@ class MRWordFrequencyCount (MRJob):
         yield word, sum(values)
 
     def mapper_make_counts_key(self, word, count): 
-        yield '04d'%int (count), word #'04d' supaya tampil contoh 0001
+        yield '04d'%int (count), word 
 
     def reducer_output_words(self, count, words):
         for word in words:
-            yield count, word #urut by count
+            yield count, word 
 
 if __name__ == '__main__':
     MRWordFrequencyCount.run()
