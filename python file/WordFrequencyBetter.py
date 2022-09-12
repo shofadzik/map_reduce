@@ -3,8 +3,7 @@
 from mrjob.job import MRJob
 import re #import dulu regex
 
-WORD_REGEXP = re.compile(r"[\w']+") #re.compile ini artinya kita mau cari regex nya patternya gimana , \w brarti word
-#kalo \d brarti word
+WORD_REGEXP = re.compile(r"[\w']+") 
 
 class MRWordFrequencyCount(MRJob):
 
